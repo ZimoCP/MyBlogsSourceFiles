@@ -125,7 +125,7 @@ Server = http://mirrors.tuna.tsinghua.edu.cn/arch4edu/$arch
 
 ## 常用软件
 
-### 搜狗输入法
+### 搜狗输入法（不知为何我的KDE配不好这个）
 为什么用搜狗的呢？因为好用。。。（真的是Linux下最好用的了）  
 终端输入`sudo pacman -S fcitx-sogoupinyin fcitx-im fcitx-configtool`  
 终端输入`你的文本编辑器 ~/.xprofile`  
@@ -135,6 +135,21 @@ export GTK_IM_MODULE=fcitx
 export QT_IM_MODULE=fcitx
 export XMODIFIERS="im=fcitx"
 ```
+
+### IBus（输入法）
+当然你也可以直接去看[ArchWiki](https://wiki.archlinux.org/index.php/IBus_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87))  
+安装（GNOME请将下面`-S`后的第一个`ibus`删掉）：终端输入  
+`sudo pacman -S ibus ibus-libpinyin`  
+如果KDE的不能用就还要`yay ibus-qt`并且开`qtconfig-qt4`，选择`Interface`，将最底下的`Default Input Method`换成ibus  
+GNOME用户装好之后直接开GNOME设置调就好了，我相信你们会的（主要是我没有用GNOME。。。）  
+其他用户打开`.xprofile`（没有就新建）加上这么几句  
+```
+export GTK_IM_MODULE=ibus
+export XMODIFIERS=@im=ibus
+export QT_IM_MODULE=ibus
+ibus-daemon -x -d
+```  
+然后注销重登桌面就好了
 
 ### QQ/TIM
 QQ: `yay deepin.com.qq.im`
